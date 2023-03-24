@@ -6,6 +6,7 @@ import {MovieListComponent} from './movie/movie-list/movie-list.component';
 import {AsyncPipe, NgIf} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../environments/environment';
+import {MovieService} from './movie/movie.service';
 
 @Component({
   selector: 'app-root',
@@ -29,18 +30,9 @@ import {environment} from '../environments/environment';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  httpClient = inject(HttpClient);
 
-  movies$ = this.httpClient.get<{ results: MovieModel[] }>(
-    `${environment.tmdbBaseUrl}/3/movie/popular`,
-    {
-      headers: {
-        Authorization: `Bearer ${environment.tmdbApiReadAccessKey}`
-      }
-    }
-  );
+  movieService = inject(MovieService);
 
-  constructor(
-  ) { }
+  movies$ = this.movieService.getMovies('top_rated')
 
 }
