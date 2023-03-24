@@ -30,8 +30,14 @@ npm run start
 ```
 ## Workshop document
 
-* [nice document](https://docs.google.com/document/d/1j3202nK5RRJeU60-wEbFcogWXutwTj66qkTz5w9PPPk/edit#heading=h.85w83vmv6b30)
+* [Overview Document](https://docs.google.com/document/d/1j3202nK5RRJeU60-wEbFcogWXutwTj66qkTz5w9PPPk/edit#heading=h.85w83vmv6b30)
 
 ## Exercises
 
-* [exercises](./exercises)
+* [Templates](./exercises/movies-intro_template-expressions.md)
+* [First Component](./exercises/first%20component.md)
+* [Attribute Directive](./exercises/attribute_directives.md)
+* [Structural Directive](./exercises/movie-list_structural_directives.md)
+* [Async Pipe](./exercises/http-client.md)
+* [Pipes](./exercises/pipes.md)
+* [Services](./exercises/services.md)
