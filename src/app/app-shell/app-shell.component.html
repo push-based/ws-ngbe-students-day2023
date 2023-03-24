@@ -15,19 +15,29 @@
   </a>
   <nav class="navigation">
     <h3 class="navigation--headline">Discover</h3>
-    <!--<h3 class="navigation&#45;&#45;headline">Genres</h3>
     <a
-      [attr.data-uf]="'menu-gen-'+genre.id"
-      *ngFor="let genre of genres$ | async; trackBy: trackByGenre;"
-      class="navigation&#45;&#45;link"
-      [routerLink]="['/list', 'genre', genre.id]"
-      routerLinkActive="active"
+            class="navigation--link"
     >
-      <div class="navigation&#45;&#45;menu-item">
-        <svg-icon class="navigation&#45;&#45;menu-item-icon" name="genre"></svg-icon>
-        {{ genre.name }}
+      <div class="navigation--menu-item">
+        Popular
       </div>
-    </a>-->
+    </a>
+
+    <a
+            class="navigation--link"
+    >
+      <div class="navigation--menu-item">
+        Top Rated
+      </div>
+    </a>
+
+    <a
+            class="navigation--link"
+    >
+      <div class="navigation--menu-item">
+        Upcoming
+      </div>
+    </a>
   </nav>
   <div class="menu-footer">
     <a
