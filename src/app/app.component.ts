@@ -1,15 +1,17 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import {Component, inject, ViewEncapsulation} from '@angular/core';
 import {AppShellComponent} from './app-shell/app-shell.component';
 import {MovieCardComponent} from './movie/movie-card/movie-card.component';
 import {MovieModel} from './movie/movie-model';
 import {MovieListComponent} from './movie/movie-list/movie-list.component';
-import {NgIf} from '@angular/common';
+import {AsyncPipe, NgIf} from '@angular/common';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../environments/environment';
 
 @Component({
   selector: 'app-root',
   template: `
     <app-shell>
-        <movie-list *ngIf="movies; else: loader" [movies]="movies" />
+        <movie-list *ngIf="(movies$ | async)?.results as movies; else: loader" [movies]="movies" />
         <ng-template #loader>
             <div class="loader"></div>
         </ng-template>
@@ -21,25 +23,22 @@ import {NgIf} from '@angular/common';
     MovieCardComponent,
     MovieListComponent,
     NgIf,
+    AsyncPipe,
   ],
   standalone: true,
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
+  httpClient = inject(HttpClient);
 
-  movies: MovieModel[] = [{
-    title: 'Turning red',
-    poster_path: '/qsdjk9oAKSQMWs0Vt5Pyfh6O4GZ.jpg',
-    vote_average: 5
-  }, {
-    title: 'Turning red',
-    poster_path: '/qsdjk9oAKSQMWs0Vt5Pyfh6O4GZ.jpg',
-    vote_average: 5
-  }, {
-    title: 'Turning red',
-    poster_path: '/qsdjk9oAKSQMWs0Vt5Pyfh6O4GZ.jpg',
-    vote_average: 5
-  }];
+  movies$ = this.httpClient.get<{ results: MovieModel[] }>(
+    `${environment.tmdbBaseUrl}/3/movie/popular`,
+    {
+      headers: {
+        Authorization: `Bearer ${environment.tmdbApiReadAccessKey}`
+      }
+    }
+  );
 
   constructor(
   ) { }
