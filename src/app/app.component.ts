@@ -7,15 +7,13 @@ import {AsyncPipe, NgIf} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {MovieService} from './movie/movie.service';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   template: `
     <app-shell>
-        <movie-list *ngIf="(movies$ | async)?.results as movies; else: loader" [movies]="movies" />
-        <ng-template #loader>
-            <div class="loader"></div>
-        </ng-template>
+        <router-outlet></router-outlet>
     </app-shell>
   `,
   styleUrls: ['./app.component.scss'],
@@ -25,14 +23,11 @@ import {MovieService} from './movie/movie.service';
     MovieListComponent,
     NgIf,
     AsyncPipe,
+    RouterOutlet,
   ],
   standalone: true,
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-
-  movieService = inject(MovieService);
-
-  movies$ = this.movieService.getMovies('top_rated')
 
 }

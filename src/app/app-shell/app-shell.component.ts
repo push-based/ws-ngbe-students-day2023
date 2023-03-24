@@ -4,6 +4,7 @@ import { HamburgerButtonModule } from '../ui/component/hamburger-button/hamburge
 import { SvgIconModule } from '../ui/component/icons/icon.module';
 import { SearchBarModule } from '../ui/component/search-bar/search-bar.module';
 import { SideDrawerModule } from '../ui/component/side-drawer/side-drawer.module';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-shell',
@@ -14,7 +15,8 @@ import { SideDrawerModule } from '../ui/component/side-drawer/side-drawer.module
     SearchBarModule,
     DarkModeToggleModule,
     SvgIconModule,
-    SideDrawerModule
+    SideDrawerModule,
+    RouterLink
   ],
   standalone: true
 })
