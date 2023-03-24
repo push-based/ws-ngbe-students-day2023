@@ -2,13 +2,14 @@ import {Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {StarRatingModule} from '../../ui/pattern/star-rating/star-rating.module';
 import {MovieModel} from '../movie-model';
+import {TiltDirective} from '../../tilt.directive';
 
 @Component({
   selector: 'movie-card',
   standalone: true,
-  imports: [CommonModule, StarRatingModule],
+  imports: [CommonModule, StarRatingModule, TiltDirective],
   template: `
-      <div class="movie-card" >
+      <div class="movie-card" tilt >
           <img class="movie-image"
                [src]="'https://image.tmdb.org/t/p/w300' + movie.poster_path">
           <div class="movie-card-content">

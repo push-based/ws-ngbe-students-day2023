@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { AppShellComponent } from './app-shell/app-shell.component';
+import {Component, ViewEncapsulation} from '@angular/core';
+import {AppShellComponent} from './app-shell/app-shell.component';
 import {MovieCardComponent} from './movie/movie-card/movie-card.component';
 import {MovieModel} from './movie/movie-model';
 
@@ -15,7 +15,8 @@ import {MovieModel} from './movie/movie-model';
     AppShellComponent,
     MovieCardComponent,
   ],
-  standalone: true
+  standalone: true,
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
 

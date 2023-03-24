@@ -75,12 +75,12 @@ Set up the `@HostListener`s as well as the `@HostBinding` needed for our directi
 
 @HostListener('mouseenter')
 rotate(event: MouseEvent) {
-    this.transform = `rotate(30deg)`;
+    this.rotation = `rotate(30deg)`;
 }
 
 @HostListener('mouseleave')
 reset() {
-    this.transform = `rotate(0deg)`;
+    this.rotation = `rotate(0deg)`;
 }
 
 @HostBinding('style.transform')
