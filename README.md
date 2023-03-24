@@ -28,7 +28,10 @@ npm install
 ```bash
 npm run start
 ```
+## Workshop document
+
+* [nice document](https://docs.google.com/document/d/1j3202nK5RRJeU60-wEbFcogWXutwTj66qkTz5w9PPPk/edit#heading=h.85w83vmv6b30)
 
 ## Exercises
 
-will be added soon
+* [exercises](./exercises)
